@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h1>@realDonaldTrump's No-Adjective Tweets</h1>
+<br>
+<% @tweets.each do |tweet| %>
+  <h3><%= tweet.created_at %></h3>
+  <ul>
+    <li style="list-style:none"><h4>Raw</h4></li>
+    <ul>
+      <li style="list-style:none;"><%= tweet.text %></li>
+    </ul>
+  </ul>
+  <ul>
+    <li style="list-style:none"><h4>Redacted</h4></li>
+    <ul>
+      <li style="list-style:none"><%= redact(tweet.pos_tagged_text) %></li>
+    </ul>
+  </ul>
+  <ul>
+    <li style="list-style:none"><h4>Stripped</h4></li>
+    <ul>
+      <li style="list-style:none" ><%= strip(tweet.pos_tagged_text) %></li>
+    </ul>
+  </ul>
+  <br>
+<% end %>
